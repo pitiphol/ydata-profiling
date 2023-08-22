@@ -244,7 +244,7 @@ def fmt_numeric(value: float, precision: int = 10) -> str:
     Returns:
         The numeric value with the given precision.
     """
-    fmtted = f"{{:.{precision}g}}".format(value)
+    fmtted = f"{{:.{precision}g}}".format(value if value is not None else 9999999)
     for v in ["e+", "e-"]:
         if v in fmtted:
             sign = "-" if v in "e-" else ""
